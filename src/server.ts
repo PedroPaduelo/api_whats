@@ -29,7 +29,8 @@ venom
     session: 'session-name', //name of session
     browserArgs: [
       '--no-sandbox', 
-      '--disable-setuid-sandbox'
+      '--disable-setuid-sandbox',
+      '--disable-extensions'
     ]
   })
   .then((client) =>  start(client))
