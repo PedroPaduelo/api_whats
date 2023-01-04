@@ -1,6 +1,8 @@
 import express, { json } from 'express';
 import * as dotenv from 'dotenv' 
 import cors from 'cors';
+import { create, Whatsapp } from 'venom-bot';
+
 const venom = require('venom-bot');
 
 
@@ -27,92 +29,16 @@ venom
   .create({
     session: 'session-name', //name of session
   })
-  .then((client) => start(client))
+  .then((client) =>  start(client))
   .catch((erro) => {
     console.log(erro);
   });
 
-function start(client) {
+async function start(client) {
+
+
   client.onMessage((message) => {
     console.log(message)
-   
-    let buttons = [
-      {
-        "buttonId": "1",
-        "buttonText": {
-          "displayText": "Button 1"
-          }
-        },
-      {
-        "buttonId": "2",
-        "buttonText": {
-          "displayText": "Button 2"
-          }
-        }
-      ]
-    client.sendButtons(message.from, "Title", buttons, "Description")
-     .then((result) => {
-       console.log('Result: ', result); //return object success
-     })
-     .catch((erro) => {
-       console.error('Error when sending: ', erro); //return object error
-     });
-
-    // client
-    //   .sendText(message.from, 'Benvindo ao nosso chat Boot!')
-    //   .then((result) => {
-    //     console.log('Result: ', result); //return object success
-    //   })
-    //   .catch((erro) => {
-    //     console.error('Error when sending: ', erro); //return object error
-    //   });
-
-    // client
-    //   .sendText(message.from, 'Tudo bem!')
-    //   .then((result) => {
-    //     console.log('Result: ', result); //return object success
-    //   })
-    //   .catch((erro) => {
-    //     console.error('Error when sending: ', erro); //return object error
-    //   });
-
-    // client
-    //   .sendText(message.from, 'Em que podemos te ajudar!')
-    //   .then((result) => {
-    //     console.log('Result: ', result); //return object success
-    //   })
-    //   .catch((erro) => {
-    //     console.error('Error when sending: ', erro); //return object error
-    //   });
-
-    // if (message.body === 'oi' && message.isGroupMsg === false) {
-    //   client
-    //     .sendText(message.from, 'Benvindo ao nosso chat Boot!')
-    //     .then((result) => {
-    //       console.log('Result: ', result); //return object success
-    //     })
-    //     .catch((erro) => {
-    //       console.error('Error when sending: ', erro); //return object error
-    //     });
-
-    //   client
-    //     .sendText(message.from, 'Tudo bem!')
-    //     .then((result) => {
-    //       console.log('Result: ', result); //return object success
-    //     })
-    //     .catch((erro) => {
-    //       console.error('Error when sending: ', erro); //return object error
-    //     });
-
-    //   client
-    //     .sendText(message.from, 'Em que podemos te ajudar!')
-    //     .then((result) => {
-    //       console.log('Result: ', result); //return object success
-    //     })
-    //     .catch((erro) => {
-    //       console.error('Error when sending: ', erro); //return object error
-    //     });
-    // }
 
   });
 }
