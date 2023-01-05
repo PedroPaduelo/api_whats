@@ -2,15 +2,15 @@ FROM alpine:3.14 AS build
 
 WORKDIR /root
 
-RUN apk add --no-cache \
-      chromium \
-      nss \
-      freetype \
-      harfbuzz \
-      ca-certificates \
-      ttf-freefont \
-      nodejs \
-      yarn
+# RUN apk add --no-cache \
+#       chromium \
+#       nss \
+#       freetype \
+#       harfbuzz \
+#       ca-certificates \
+#       ttf-freefont \
+#       nodejs \
+#       yarn
 
 RUN apk add --update --no-cache nodejs npm
 
