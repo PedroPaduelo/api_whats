@@ -14,6 +14,7 @@ RUN apk add --no-cache \
 RUN apk add --update --no-cache nodejs npm
 RUN apk update && apk install -y libgconf-2-4
 
+
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 RUN yarn add puppeteer@13.5.0
