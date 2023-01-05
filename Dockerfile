@@ -12,8 +12,6 @@ RUN apk add --no-cache \
       nodejs \
       yarn
 
-
-
 RUN apk add --update --no-cache nodejs npm
 
 COPY package*.json ./
@@ -34,3 +32,6 @@ COPY --from=build /root/node_modules ./node_modules
 COPY --from=build /root/dist ./dist
 
 ENTRYPOINT ["node", "dist/server.js"]
+
+
+
