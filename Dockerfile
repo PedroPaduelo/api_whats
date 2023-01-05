@@ -8,4 +8,11 @@ RUN apt-get update && apt-get install -y \
   libasound2 \
   libatk1.0-0
 
-# Adicione o resto das instruções do seu Dockerfile aqui
+WORKDIR /app
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["node", "server.js"]
