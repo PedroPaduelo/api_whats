@@ -2,7 +2,7 @@ FROM alpine:3.14 AS build
 
 WORKDIR /root
 
-RUN apt-get update && apt-get install -y \
+RUN apk --update && apk --install -y \
   libx11-xcb1 \
   libxtst6 \
   libnss3 \
