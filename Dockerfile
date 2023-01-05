@@ -21,7 +21,6 @@ COPY tokens ./tokens
 
 RUN npm install
 RUN npm run build
-RUN npm prune --production
 
 
 
