@@ -21,4 +21,4 @@ COPY --from=build /root/dist ./dist
 
 RUN apk add --update --no-cache postgresql-client nodejs npm
 
-ENTRYPOINT ["node", "dist/index.js"]
+ENTRYPOINT ["node", "dist/server.js"]
