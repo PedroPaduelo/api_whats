@@ -1,4 +1,6 @@
-FROM node:14-buster
+FROM alpine:3.14 AS build
+
+WORKDIR /root
 
 RUN apt-get update && apt-get install -y \
   libx11-xcb1 \
@@ -8,11 +10,23 @@ RUN apt-get update && apt-get install -y \
   libasound2 \
   libatk1.0-0
 
-WORKDIR /app
+RUN apk add --update --no-cache nodejs npm
 
-COPY package.json .
+COPY package*.json ./
+COPY tsconfig.json ./
+COPY src ./src
+COPY tokens ./tokens
+
 RUN npm install
+RUN npm run build
+RUN npm prune --production
 
-COPY . .
 
-CMD ["node", "server.js"]
+
+FROM alpine:3.14
+WORKDIR /root
+
+COPY --from=build /root/node_modules ./node_modules
+COPY --from=build /root/dist ./dist
+
+ENTRYPOINT ["node", "dist/server.js"]
