@@ -28,9 +28,7 @@ venom
   .create({
     session: 'session-name', //name of session
     browserArgs: [
-      '--no-sandbox', 
-      '--disable-setuid-sandbox',
-      '--disable-extensions'
+      "--user-agent"
     ]
   })
   .then((client) =>  start(client))
