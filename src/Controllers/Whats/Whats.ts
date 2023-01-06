@@ -42,9 +42,10 @@ export async function CreateSession(request, response) {
   export async function sendTextCustom(request, response) {
 
    const mensagem =  request.body.msg
+   const tel = request.body.tel
 
     try {
-      const result = await whats[0].sendText('+5534998688540', mensagem);
+      const result = await whats[0].sendText( tel, mensagem);
 
       return response.json(result); 
     } catch (error) {
