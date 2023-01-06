@@ -28,11 +28,7 @@ export async function CreateSession(request, response) {
 
   export async function getAllContactsCustom(request, response) {
 
-  
     try {
-  
-  
-
       const contacts = await whats[0].getAllContacts();
 
       return response.json(contacts); 
@@ -41,6 +37,22 @@ export async function CreateSession(request, response) {
       return response.json(error);
     }
   }
+
+
+  export async function sendTextCustom(request, response) {
+
+   const mensagem =  request.body.msg
+
+    try {
+      const result = await whats[0].sendText('+5534998688540', mensagem);
+
+      return response.json(result); 
+    } catch (error) {
+      console.log(error)
+      return response.json(error);
+    }
+  }
+
 
 
 
