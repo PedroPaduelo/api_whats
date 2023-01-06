@@ -29,7 +29,7 @@ import {  CreateRelationTypeUserAndRouts,
           ListRelationTypeUserAndRouts,
 } from '../Controllers/ApplicationCore/TypeUserAndRouts/UserAndRouts';
 
-import { CreateSession } from '../Controllers/Whats/Whats';
+import { CreateSession, getAllContactsCustom } from '../Controllers/Whats/Whats';
 
 
 
@@ -70,6 +70,7 @@ routes.post('/ListRelationTypeUserAndRouts', ListRelationTypeUserAndRouts);
 
 
 routes.post('/CreateSession', CreateSession);
+routes.post('/getAllContactsCustom', getAllContactsCustom);
 
 
 
