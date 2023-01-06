@@ -26,10 +26,7 @@ app.use(routes);
 
 venom
   .create({
-    session: 'teste', //name of session
-    browserArgs: [
-      "--no-sandbox"
-    ]
+    session: 'teste'
   })
   .then((client) =>  start(client))
   .catch((erro) => {
@@ -37,7 +34,6 @@ venom
   });
 
 async function start(client) {
-
 
   client.onMessage((message) => {
     console.log(message)
