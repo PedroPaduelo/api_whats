@@ -3,48 +3,41 @@ import { create } from "venom-bot";
 import { io } from "./server";
 
 
-create("teste").then( async client => {
 
-    // pegar mensagem do sistema do atendente
-    io.on("connection", (socket) => {
-        console.log(`- Usuário ${socket.id} conectado.`);
-        socket.on('mensagem', async (data) => {
 
+
+
+io.on("connection", (socket) => {
+    console.log(`- Usuário ${socket.id} conectado.`);
+    socket.on('mensagem', async (data) => {
+      create("teste").then( async client => {
+
+   
+  
+        client.onMessage( async message => {
+          if ( !message.isGroupMsg ) {
+            client.sendText(message.from, "Olá eu sou a Bot mais top de todas, sua atendente virtual.\nSeja bem vindo(a) a central de atendimento da *Infonet Telecom!*");
+            client.sendText(message.from, "Selecione uma das opções:\n\n*1* - Suporte Técnico\n*2* - Financeiro\n*3* - Comercial.\n*0* - Encerrar Atendimento.");
             try {
-                const res = await client.sendText(data.tel, data.msg);
-                console.log(res);
-
-                socket.emit('mensagem',{msg: data.msg});
-
+                
+              client.sendText(message.from, "Selecione uma das opções:\n\n*1* - Suporte Técnico\n*2* - Financeiro\n*3* - Comercial.\n*0* - Encerrar Atendimento.");
+      
             } catch (error) {
-                console.log(error);
+              console.log(error);
+              client.sendText(message.from, "❌ Desculpe, mas não conseguimos processar seu pedido.\nO técnico responsável pela manutenção do auto-atendimento foi avisado e em breve o auto-atendimento voltará a funcionar.");
             }
-            
+          }
         })
-
-    });
-    
-    client.onMessage( async message => {
-        if ( !message.isGroupMsg ) {
-            // const support = await database.table('supports').where({ number: message.from });
-            // if ( !support.length ) {
-            //     console.log("- inicio de atendimento.");
-            //     await database.table('supports').insert({ number: message.from, dialog: "wellcome", stage: 0 });
-            //     client.sendText(message.from, "Olá eu sou a *Márcia*, sua atendente virtual.\nSeja bem vindo(a) a central de atendimento da *Infonet Telecom!*");
-            //     client.sendText(message.from, "Selecione uma das opções:\n\n*1* - Suporte Técnico\n*2* - Financeiro\n*3* - Comercial.\n*0* - Encerrar Atendimento.");
-            //     return;
-            // }
-            try {
-                // const dialogFileName = support[0].dialog;
-                // const { default: { execute } } = require(`./app/dialogs/${dialogFileName}`);
-                // execute(client, message);
-            } catch (error) {
-                console.log(error);
-                // client.sendText(message.from, "❌ Desculpe, mas não conseguimos processar seu pedido.\nO técnico responsável pela manutenção do auto-atendimento foi avisado e em breve o auto-atendimento voltará a funcionar.");
-            }
-        }
+      
+      
+      
+      }).catch( err => console.log(err));
     })
 
+});
 
 
-}).catch( err => console.log(err));
+
+
+
+
