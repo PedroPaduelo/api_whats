@@ -38,7 +38,6 @@ export async function CreateSession(request, response) {
     }
   }
 
-
   export async function sendTextCustom(request, response) {
 
    const mensagem =  request.body.msg

@@ -1,3 +1,24 @@
-2023/01/05-23:36:07.407 2810 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/01/05-23:36:07.408 2810 Recovering log #21
-2023/01/05-23:36:07.452 2810 Reusing old log C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000021.log 
+2023/01/06-01:39:50.820 6284 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/01/06-01:39:50.822 6284 Recovering log #79
+2023/01/06-01:39:50.859 6284 Reusing old log C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000079.log 
+2023/01/06-01:40:03.256 30e8 Level-0 table #84: started
+2023/01/06-01:40:03.317 30e8 Level-0 table #84: 1242763 bytes OK
+2023/01/06-01:40:03.319 30e8 Delete type=0 #79
+2023/01/06-01:40:04.229 6284 Compacting 1@1 + 1@2 files
+2023/01/06-01:40:04.363 6284 Generated table #85@1: 40514 keys, 2251099 bytes
+2023/01/06-01:40:04.368 6284 Generated table #86@1: 3767 keys, 77773 bytes
+2023/01/06-01:40:04.368 6284 Compacted 1@1 + 1@2 files => 2328872 bytes
+2023/01/06-01:40:04.369 6284 compacted to: files[ 0 0 2 0 0 0 0 ]
+2023/01/06-01:40:04.370 6284 Delete type=2 #81
+2023/01/06-01:40:04.370 6284 Delete type=2 #84
+2023/01/06-01:58:43.486 53fc Level-0 table #88: started
+2023/01/06-01:58:43.546 53fc Level-0 table #88: 1294318 bytes OK
+2023/01/06-01:58:43.548 53fc Delete type=0 #83
+2023/01/06-01:58:43.871 67f0 Compacting 1@1 + 2@2 files
+2023/01/06-01:58:43.941 67f0 Generated table #89@1: 39451 keys, 2254054 bytes
+2023/01/06-01:58:43.957 67f0 Generated table #90@1: 9106 keys, 342491 bytes
+2023/01/06-01:58:43.957 67f0 Compacted 1@1 + 2@2 files => 2596545 bytes
+2023/01/06-01:58:43.958 67f0 compacted to: files[ 0 0 2 0 0 0 0 ]
+2023/01/06-01:58:43.959 67f0 Delete type=2 #85
+2023/01/06-01:58:43.959 67f0 Delete type=2 #86
+2023/01/06-01:58:43.959 67f0 Delete type=2 #88
