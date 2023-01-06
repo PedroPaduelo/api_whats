@@ -64,7 +64,7 @@ venom
       debug: false, // Opens a debug session
       logQR: true, // Logs QR automatically in terminal
       browserWS: '', // If u want to use browserWSEndpoint
-      browserArgs: [''], // Original parameters  ---Parameters to be added into the chrome browser instance
+      browserArgs: ['--no-sandbox'], // Original parameters  ---Parameters to be added into the chrome browser instance
       addBrowserArgs: [''], // Add broserArgs without overwriting the project's original
       puppeteerOptions: {}, // Will be passed to puppeteer.launch
       disableSpins: true, // Will disable Spinnies animation, useful for containers (docker) for a better log
