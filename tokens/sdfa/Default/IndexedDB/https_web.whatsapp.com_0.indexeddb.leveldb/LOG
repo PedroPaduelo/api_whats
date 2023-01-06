@@ -1,0 +1,6 @@
+2023/01/05-22:12:38.693 55e8 Creating DB C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\sdfa\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
+2023/01/05-22:12:38.699 55e8 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\sdfa\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/01/05-22:12:38.749 26f0 Level-0 table #5: started
+2023/01/05-22:12:38.753 26f0 Level-0 table #5: 6971 bytes OK
+2023/01/05-22:12:38.756 26f0 Delete type=0 #3
+2023/01/05-22:12:38.756 26f0 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

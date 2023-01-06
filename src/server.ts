@@ -35,7 +35,7 @@ async function start(client) {
 
 venom
   .create(
-    'sessionName',
+    'sdfa',
     undefined,
     (statusSession, session) => {
       console.log('Status Session: ', statusSession);
@@ -48,6 +48,7 @@ venom
     }
   )
   .then((client) => {
+    console.log(client);
     start(client);
   })
   .catch((erro) => {
