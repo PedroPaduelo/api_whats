@@ -7,8 +7,10 @@ import { Server } from "socket.io";
 
 import "./whatsSap";
 import { create } from "venom-bot";
-import connection from './Database/connection_bd_corer';
 
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 dotenv.config();
 
@@ -22,9 +24,6 @@ export const io = new Server(server, {
   }
 });
 
-function wordExists(array, word) {
-  return array.includes(word.toLowerCase());
-}
 
 
 app.use(cors());
@@ -39,21 +38,30 @@ io.on("connection", (socket) => {
 
 
   socket.on('mensagem', async (data) => {
+    console.log(data)
 
+    create(
+      "teste",
+      (base64Qrimg, asciiQR, attempts, urlCode) => {
+        console.log('Number of attempts to read the qrcode: ', attempts);
+        // console.log('Terminal qrcode: ', asciiQR);
+        // console.log('base64 image string qrcode: ', base64Qrimg);
+        // console.log('urlCode (data-ref): ', urlCode);
+      },
+      undefined,
+      {
+        multidevice: false
+      }
+      ).then( async client => {
+        const teste =  client.page
+        console.log(teste)
 
-
-    create("teste").then( async client => {
-      console.log(client)
       client.onMessage( async message => {
-        console.log(message)
+        // console.log(message)
       })
     }).catch( err => console.log(err));
 
-
-
-
     
-
   })
 
 })
