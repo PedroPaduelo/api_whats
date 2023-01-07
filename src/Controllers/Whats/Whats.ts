@@ -6,16 +6,14 @@ const table = "tbl_app"
 let whats = []
 
 
-export async function CreateSession(request, response) {
+  export async function CreateSession(request, response) {
 
   
     try {
 
-      const client = await create(
-        "teste"
-      )
+      const result = await connection.select("*").from("tbl_ad_vendas")
 
-      whats.push(client)
+      console.log(result)
 
       return response.json("OK"); 
     } catch (error) {

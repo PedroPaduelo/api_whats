@@ -1,3 +1,6 @@
-2023/01/06-01:39:50.180 5018 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\Local Storage\leveldb/MANIFEST-000001
-2023/01/06-01:39:50.183 5018 Recovering log #4
-2023/01/06-01:39:50.184 5018 Reusing old log C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\Local Storage\leveldb/000004.log 
+2023/01/06-23:52:41.190 3d8 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\Local Storage\leveldb/MANIFEST-000001
+2023/01/06-23:52:41.191 3d8 Recovering log #4
+2023/01/06-23:52:41.191 3d8 Reusing old log C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\teste\Default\Local Storage\leveldb/000004.log 
+2023/01/06-23:54:44.652 3d8 Level-0 table #7: started
+2023/01/06-23:54:44.655 3d8 Level-0 table #7: 15746 bytes OK
+2023/01/06-23:54:44.657 3d8 Delete type=0 #4
