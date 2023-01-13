@@ -6,10 +6,13 @@ import routes from './routes/routes';
 import { Server } from "socket.io";
 
 import "./whatsSap";
-import { create } from "venom-bot";
 
-function sleep(time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
+
+
+function filterArrayBySession(arr, session) {
+  return arr.filter(function(item) {
+    return item.session === session;
+  });
 }
 
 dotenv.config();
@@ -33,34 +36,28 @@ app.use(routes);
 
 const port = process.env.PORT;
 
+
+export let clientes = []
+
+
+
+
+
 io.on("connection", (socket) => {
   console.log(`- Usuário ${socket.id} conectado.`);
 
 
   socket.on('mensagem', async (data) => {
-    console.log(data)
+    console.log(data.session)
 
-    create(
-      "teste",
-      (base64Qrimg, asciiQR, attempts, urlCode) => {
-        console.log('Number of attempts to read the qrcode: ', attempts);
-        // console.log('Terminal qrcode: ', asciiQR);
-        // console.log('base64 image string qrcode: ', base64Qrimg);
-        // console.log('urlCode (data-ref): ', urlCode);
-      },
-      undefined,
-      {
-        multidevice: false
-      }
-      ).then( async client => {
-        const teste =  client.page
-        console.log(teste)
+    const auxi = filterArrayBySession(clientes, data.session)
+    console.log(clientes)
 
-      client.onMessage( async message => {
-        // console.log(message)
-      })
-    }).catch( err => console.log(err));
 
+    auxi[0].cliente.onMessage( async message => {
+      console.log(message)
+    })
+  
     
   })
 

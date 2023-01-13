@@ -1,19 +1,41 @@
 import connection from '../../Database/connection_bd_corer';
 import { create, Whatsapp } from 'venom-bot';
+import { clientes } from '../../server';
+
 
 
 const table = "tbl_app"
 let whats = []
 
 
+
+  const status = (statusSession: string, session: string) => {
+    console.log(session)
+  };
+
+  const qrcode = (base64Qrimg, asciiQR, attempts, urlCode) => {
+    console.log(asciiQR)
+  };
+
+  function filterArrayBySession(arr, session) {
+    return arr.filter(function(item) {
+      return item.session === session;
+    });
+  }
+
+
   export async function CreateSession(request, response) {
 
-  
+    const session =  request.body.session
+
     try {
 
-      const result = await connection.select("*").from("tbl_ad_vendas")
+      const cliente = await create(session)
 
-      console.log(result)
+      clientes.push({
+        session: session,
+        cliente: cliente
+      })
 
       return response.json("OK"); 
     } catch (error) {
@@ -22,12 +44,12 @@ let whats = []
     }
   }
 
-
-
   export async function getAllContactsCustom(request, response) {
+   const session =  request.body.session
 
+    const auxi = filterArrayBySession(clientes, session)
     try {
-      const contacts = await whats[0].getAllContacts();
+      const contacts = await auxi[0].cliente.getAllContacts();
 
       return response.json(contacts); 
     } catch (error) {
@@ -38,11 +60,18 @@ let whats = []
 
   export async function sendTextCustom(request, response) {
 
+   const session =  request.body.session
    const mensagem =  request.body.msg
    const tel = request.body.tel
 
+   const auxi = filterArrayBySession(clientes, session)
+
     try {
-      const result = await whats[0].sendText( tel, mensagem);
+      
+
+      // console.log(auxi[0].cliente)
+
+      const result = await auxi[0].cliente.sendText(tel, mensagem);
 
       return response.json(result); 
     } catch (error) {
@@ -50,7 +79,6 @@ let whats = []
       return response.json(error);
     }
   }
-
 
 
 
