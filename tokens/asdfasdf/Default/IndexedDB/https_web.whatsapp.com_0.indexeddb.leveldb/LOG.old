@@ -1,0 +1,10 @@
+2023/01/16-16:21:41.114 4190 Reusing MANIFEST C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\asdfasdf\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/01/16-16:21:41.115 4190 Recovering log #8
+2023/01/16-16:21:41.157 4190 Reusing old log C:\Users\myke.paduelo_ifood\Desktop\new_code\api_whats\tokens\asdfasdf\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000008.log 
+2023/01/16-16:21:53.521 263c Level-0 table #13: started
+2023/01/16-16:21:53.673 263c Level-0 table #13: 1143755 bytes OK
+2023/01/16-16:21:53.680 263c Delete type=0 #8
+2023/01/16-16:21:56.195 4190 Compacting 1@0 + 1@1 files
+2023/01/16-16:21:56.571 4190 Generated table #14@0: 60917 keys, 1406232 bytes
+2023/01/16-16:21:56.571 4190 Compacted 1@0 + 1@1 files => 1406232 bytes
+2023/01/16-16:21:56.574 4190 compacted to: files[ 0 1 1 0 0 0 0 ]

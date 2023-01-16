@@ -5,7 +5,9 @@ import cors from 'cors';
 import routes from './routes/routes';
 import { Server } from "socket.io";
 
+
 import "./whatsSap";
+import { create } from 'venom-bot';
 
 
 
@@ -44,22 +46,43 @@ export let clientes = []
 
 
 io.on("connection", (socket) => {
-  console.log(`- Usuário ${socket.id} conectado.`);
+  // console.log(`- Usuário ${socket.id} conectado.`);
 
 
-  socket.on('mensagem', async (data) => {
-    console.log(data.session)
 
-    const auxi = filterArrayBySession(clientes, data.session)
-    console.log(clientes)
+  socket.on('generate-qr-code', async (data) => {
+    const cliente = await create(
 
+      data.session,
+      
+      (base64Qr, asciiQR, attempts, urlCode) => {
+        socket.emit("qr-code-imagee", base64Qr);
+      },
 
-    auxi[0].cliente.onMessage( async message => {
+      undefined,
+
+      { logQR: false }
+
+    )
+
+    clientes.push({
+      session: data.session,
+      cliente: cliente
+    })    
+  })
+
+  socket.on('ativar-conta', async (data) => {
+    const cliente = filterArrayBySession(clientes, data.session)
+    cliente[0].cliente.onMessage( async message => {
       console.log(message)
     })
-  
-    
   })
+
+  
+
+
+  
+
 
 })
 

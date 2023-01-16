@@ -1,11 +1,5 @@
-import connection from '../../Database/connection_bd_corer';
-import { create, Whatsapp } from 'venom-bot';
+import { create } from 'venom-bot';
 import { clientes } from '../../server';
-
-
-
-const table = "tbl_app"
-let whats = []
 
 
 
@@ -22,6 +16,9 @@ let whats = []
       return item.session === session;
     });
   }
+
+
+
 
 
   export async function CreateSession(request, response) {
