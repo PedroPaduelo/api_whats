@@ -29,7 +29,68 @@ import {  CreateRelationTypeUserAndRouts,
           ListRelationTypeUserAndRouts,
 } from '../Controllers/ApplicationCore/TypeUserAndRouts/UserAndRouts';
 
-import { CreateSession, getAllContactsCustom, sendListMenuCustom, sendTextCustom } from '../Controllers/Whats/Whats';
+import { 
+  addParticipantCustom, 
+  checkNumberStatusCustom, 
+  createGroupCustom, 
+  CreateSession, 
+  demoteParticipantCustom, 
+  forwardMessagesCustom, 
+  getAllChatsContactsCustom, 
+  getAllChatsCustom, 
+  getAllChatsGroupsCustom, 
+  getAllChatsNewMsgCustom, 
+  getAllChatsTransmissionCustom, 
+  getAllContactsCustom, 
+  getAllMessagesInChatCustom, 
+  getAllUnreadMessagesCustom, 
+  getBatteryLevelCustom, 
+  getBlockListCustom, 
+  getChatContactNewMsgCustom, 
+  getChatCustom, 
+  getChatGroupNewMsgCustom, 
+  getConnectionStateCustom, 
+  getGroupAdminsCustom, 
+  getGroupInviteLinkCustom, 
+  getGroupMembersCustom, 
+  getGroupMembersIdsCustom, 
+  getHostDeviceCustom, 
+  getListMuteCustom, 
+  getNumberProfileCustom, 
+  getProfilePicFromServerCustom, 
+  getSessionTokenBrowserCustom, 
+  getStatusCustom, 
+  getWAVersionCustom, 
+  isConnectedCustom, 
+  killServiceWorkerCustom, 
+  leaveGroupCustom, 
+  loadAndGetAllMessagesInChatCustom, 
+  loadEarlierMessagesCustom, 
+  logoutCustom, 
+  promoteParticipantCustom, 
+  removeParticipantCustom, 
+  restartServiceCustom, 
+  sendButtonsCustom, 
+  sendButtonsTemplateCustom, 
+  sendContactVcardCustom, 
+  sendContactVcardListCustom, 
+  sendFileCustom, 
+  sendFileFromBase64Custom, 
+  sendImageAsStickerCustom, 
+  sendImageAsStickerGifCustom, 
+  sendImageCustom, 
+  sendImageFromBase64Custom, 
+  sendLinkPreviewCustom, 
+  sendListMenuCustom, 
+  sendLocationCustom, 
+  sendTextCustom, 
+  sendVoiceBase64Custom, 
+  sendVoiceCustom, 
+  setGroupDescriptionCustom, 
+  setProfileNameCustom, 
+  setProfilePicCustom, 
+  setProfileStatusCustom 
+} from '../Controllers/Whats/Whats';
 
 
 
@@ -70,11 +131,75 @@ routes.post('/ListRelationTypeUserAndRouts', ListRelationTypeUserAndRouts);
 
 
 routes.post('/CreateSession', CreateSession);
-routes.post('/getAllContactsCustom', getAllContactsCustom);
 routes.post('/sendTextCustom', sendTextCustom);
 routes.post('/sendListMenuCustom', sendListMenuCustom);
 
 
+routes.post('/sendButtonsCustom', sendButtonsCustom);
+routes.post('/sendButtonsTemplateCustom', sendButtonsTemplateCustom);
+routes.post('/sendVoiceCustom', sendVoiceCustom);
+routes.post('/sendVoiceBase64Custom', sendVoiceBase64Custom);
+routes.post('/sendContactVcardCustom', sendContactVcardCustom);
+routes.post('/sendContactVcardListCustom', sendContactVcardListCustom);
+routes.post('/sendLocationCustom', sendLocationCustom);
+routes.post('/sendLinkPreviewCustom', sendLinkPreviewCustom);
+routes.post('/sendImageCustom', sendImageCustom);
+routes.post('/sendImageFromBase64Custom', sendImageFromBase64Custom);
+routes.post('/sendFileCustom', sendFileCustom);
+routes.post('/sendFileFromBase64Custom', sendFileFromBase64Custom);
+routes.post('/sendImageAsStickerGifCustom', sendImageAsStickerGifCustom);
+routes.post('/sendImageAsStickerCustom', sendImageAsStickerCustom);
+routes.post('/forwardMessagesCustom', forwardMessagesCustom);
+
+
+routes.post('/getAllChatsCustom', getAllChatsCustom);
+routes.post('/getAllChatsNewMsgCustom', getAllChatsNewMsgCustom);
+routes.post('/getAllChatsContactsCustom', getAllChatsContactsCustom);
+routes.post('/getChatContactNewMsgCustom', getChatContactNewMsgCustom);
+routes.post('/getAllChatsGroupsCustom', getAllChatsGroupsCustom);
+routes.post('/getChatGroupNewMsgCustom', getChatGroupNewMsgCustom);
+routes.post('/getAllChatsTransmissionCustom', getAllChatsTransmissionCustom);
+routes.post('/getAllContactsCustom', getAllContactsCustom);
+routes.post('/getListMuteCustom', getListMuteCustom);
+routes.post('/getSessionTokenBrowserCustom', getSessionTokenBrowserCustom);
+routes.post('/getBlockListCustom', getBlockListCustom);
+routes.post('/getAllMessagesInChatCustom', getAllMessagesInChatCustom);
+routes.post('/loadEarlierMessagesCustom', loadEarlierMessagesCustom);
+routes.post('/loadAndGetAllMessagesInChatCustom', loadAndGetAllMessagesInChatCustom);
+routes.post('/getStatusCustom', getStatusCustom);
+routes.post('/getNumberProfileCustom', getNumberProfileCustom);
+routes.post('/getAllUnreadMessagesCustom', getAllUnreadMessagesCustom);
+routes.post('/getProfilePicFromServerCustom', getProfilePicFromServerCustom);
+routes.post('/getChatCustom', getChatCustom);
+routes.post('/checkNumberStatusCustom', checkNumberStatusCustom);
+
+
+routes.post('/setGroupDescriptionCustom', setGroupDescriptionCustom);
+routes.post('/leaveGroupCustom', leaveGroupCustom);
+routes.post('/getGroupMembersCustom', getGroupMembersCustom);
+routes.post('/getGroupMembersIdsCustom', getGroupMembersIdsCustom);
+routes.post('/getGroupInviteLinkCustom', getGroupInviteLinkCustom);
+routes.post('/createGroupCustom', createGroupCustom);
+routes.post('/removeParticipantCustom', removeParticipantCustom);
+routes.post('/addParticipantCustom', addParticipantCustom);
+routes.post('/promoteParticipantCustom', promoteParticipantCustom);
+routes.post('/demoteParticipantCustom', demoteParticipantCustom);
+routes.post('/getGroupAdminsCustom', getGroupAdminsCustom);
+
+
+routes.post('/setProfileStatusCustom', setProfileStatusCustom);
+routes.post('/setProfileNameCustom', setProfileNameCustom);
+routes.post('/setProfilePicCustom', setProfilePicCustom);
+routes.post('/getHostDeviceCustom', getHostDeviceCustom);
+
+
+routes.post('/logoutCustom', logoutCustom);
+routes.post('/killServiceWorkerCustom', killServiceWorkerCustom);
+routes.post('/restartServiceCustom', restartServiceCustom);
+routes.post('/getConnectionStateCustom', getConnectionStateCustom);
+routes.post('/getBatteryLevelCustom', getBatteryLevelCustom);
+routes.post('/isConnectedCustom', isConnectedCustom);
+routes.post('/getWAVersionCustom', getWAVersionCustom);
 
 
 
