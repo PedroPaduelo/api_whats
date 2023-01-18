@@ -5,6 +5,8 @@ import cors from 'cors';
 import routes from './routes/routes';
 import { Server } from "socket.io";
 
+import cookieParser from 'cookie-parser';
+
 
 import "./whatsSap";
 import { create } from 'venom-bot';
@@ -16,6 +18,9 @@ function filterArrayBySession(arr, session) {
     return item.session === session;
   });
 }
+
+
+
 
 dotenv.config();
 
@@ -33,8 +38,8 @@ export const io = new Server(server, {
 
 app.use(cors());
 app.use(json());
-
 app.use(routes);
+app.use(cookieParser());
 
 const port = process.env.PORT;
 
@@ -45,8 +50,18 @@ export let clientes = []
 
 
 
+
+
+
+
+
+
+
+
+
+
 io.on("connection", (socket) => {
-  // console.log(`- Usuário ${socket.id} conectado.`);
+  console.log(socket.id);
 
 
 
@@ -65,10 +80,27 @@ io.on("connection", (socket) => {
 
     )
 
+    cliente.onAnyMessage( async onAnyMessage => {
+      console.log("onAnyMessage")
+    })
+
+    cliente.onMessage( async onMessage => {
+      console.log("onMessage")
+    })
+
+    cliente.onStateChange( async onStateChange => {
+      console.log("onStateChange")
+    })
+
+    cliente.onAck( async onAck => {
+      console.log("onAck")
+    })
+
     clientes.push({
       session: data.session,
       cliente: cliente
-    })    
+    }) 
+    
   })
 
   socket.on('ativar-conta', async (data) => {
@@ -79,11 +111,6 @@ io.on("connection", (socket) => {
   })
 
   
-
-
-  
-
-
 })
 
 
