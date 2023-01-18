@@ -4,11 +4,7 @@ import * as dotenv from 'dotenv';
 import cors from 'cors';
 import routes from './routes/routes';
 import { Server } from "socket.io";
-
 import cookieParser from 'cookie-parser';
-
-
-import "./whatsSap";
 import { create } from 'venom-bot';
 
 
