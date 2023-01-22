@@ -68,6 +68,7 @@ export async function hasColumn(schema_name: string, table_name: string, column_
     }
   });
 }
+
 export function schemaColumn(table, column) {
   switch (column.data_type) {
     case 'string':

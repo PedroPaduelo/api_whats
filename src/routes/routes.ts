@@ -91,6 +91,7 @@ import {
   setProfilePicCustom, 
   setProfileStatusCustom 
 } from '../Controllers/Whats/Whats';
+import { Create, Delete, List, ListByCol, Update } from '../Controllers/Crud/Crud';
 
 
 
@@ -128,6 +129,15 @@ routes.delete('/DeleteRelationTypeUserAndRouts', DeleteRelationTypeUserAndRouts)
 routes.post('/ListRelationTypeUserAndRouts', ListRelationTypeUserAndRouts);
 
 /// -------------------------------------------------------------------- /// 
+
+routes.post('/Create', Create);
+routes.post('/Update', Update);
+routes.post('/Delete', Delete);
+routes.post('/List', List);
+routes.post('/ListByCol', ListByCol);
+
+/// -------------------------------------------------------------------- /// 
+
 
 
 routes.post('/CreateSession', CreateSession);

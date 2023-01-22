@@ -6,6 +6,7 @@ import routes from './routes/routes';
 import { Server } from "socket.io";
 import cookieParser from 'cookie-parser';
 import { create } from 'venom-bot';
+import knex from 'knex';
 
 
 
@@ -22,6 +23,10 @@ dotenv.config();
 
 const app = express();
 const server = httpServer.createServer(app);
+app.use(cors());
+app.use(json());
+app.use(routes);
+app.use(cookieParser());
 
 // Mudei a criação do servidor do Socket.io para utilizar o server criado acima
 export const io = new Server(server, {
@@ -32,30 +37,51 @@ export const io = new Server(server, {
 
 
 
-app.use(cors());
-app.use(json());
-app.use(routes);
-app.use(cookieParser());
+export let listConnectionsDatabase = []
+export async function connectionDataBase( datname ){
 
-const port = process.env.PORT;
+  const connectionDatabase = listConnectionsDatabase.find( (e)=> e.datname === datname )
+
+  if(!connectionDatabase){
+
+    try {
+
+      const connection = knex({
+        client: 'pg',
+        connection: {
+          host :    process.env.PGHOST,
+          port:     5800,
+          database: datname,
+          user:     process.env.PGUSER,
+          password: process.env.PGPASSWORD
+        },
+        pool: { 
+          min: 0,
+          max: 50 
+        },
+        useNullAsDefault: true
+      })
+  
+      listConnectionsDatabase.push({
+        datname: datname,
+        connection: connection
+      })
+
+      return connection
+  
+    } catch (error) {
+      // console.log(error);
+      return false
+    }
+
+  }
+
+  return connectionDatabase.connection
+}
+
 
 
 export let clientes = []
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 io.on("connection", (socket) => {
   console.log(socket.id);
 
@@ -111,5 +137,7 @@ io.on("connection", (socket) => {
 
 
 
+
+const port = process.env.PORT;
 // Mudei a função listen para o server criado acima
 server.listen(port, ()=> console.log("Conectado! PORT: " + port));
