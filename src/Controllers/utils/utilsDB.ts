@@ -15,7 +15,7 @@ export async function connectionDataBase( datname ){
       client: 'pg',
       connection: {
         host :    process.env.PGHOST,
-        port:     5800,
+        port:     parseInt(process.env.PGPORT),
         database: datname,
         user:     process.env.PGUSER,
         password: process.env.PGPASSWORD
