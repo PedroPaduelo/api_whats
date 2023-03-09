@@ -1,5 +1,5 @@
 import { create } from 'venom-bot';
-import { clientes } from '../../server';
+import { clientesWhats } from '../../server';
 
 
   function filterArrayBySession(arr, session) {
@@ -16,7 +16,7 @@ import { clientes } from '../../server';
 
       const cliente = await create(session)
 
-      clientes.push({
+      clientesWhats.push({
         session: session,
         cliente: cliente
       })
@@ -41,7 +41,7 @@ import { clientes } from '../../server';
    const mensagem =  request.body.msg
    const tel = request.body.tel
 
-   const cliente = filterArrayBySession(clientes, session)
+   const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
 
@@ -65,7 +65,7 @@ import { clientes } from '../../server';
     const choose =  request.body.choose
     const tel = request.body.tel
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     const sections = [
       {
@@ -119,7 +119,7 @@ import { clientes } from '../../server';
     const description =  request.body.description
     const tel = request.body.tel
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     let buttons = [
       {
@@ -155,7 +155,7 @@ import { clientes } from '../../server';
     const description =  request.body.description
     const tel = request.body.tel
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     let buttons: [
       {
@@ -192,7 +192,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
 
     try {
@@ -212,7 +212,7 @@ import { clientes } from '../../server';
     const base64MP3 =  request.body.base64MP3
     const tel = request.body.tel
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
 
     try {
@@ -233,7 +233,7 @@ import { clientes } from '../../server';
     const tel = request.body.tel
     const contactSend = request.body.contactSend
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
 
     try {
@@ -253,7 +253,7 @@ import { clientes } from '../../server';
     const tel = request.body.tel
     const contactsSend = request.body.contactsSend
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -275,7 +275,7 @@ import { clientes } from '../../server';
     const country = request.body.country
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -296,7 +296,7 @@ import { clientes } from '../../server';
     const title = request.body.title
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -322,7 +322,7 @@ import { clientes } from '../../server';
     const captionImg = request.body.captionImg
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -348,7 +348,7 @@ import { clientes } from '../../server';
     const nameImg = request.body.nameImg
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -374,7 +374,7 @@ import { clientes } from '../../server';
     const contentText = request.body.contentText
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -401,7 +401,7 @@ import { clientes } from '../../server';
     const contentText = request.body.contentText
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -427,7 +427,7 @@ import { clientes } from '../../server';
     const imgGif = request.body.imgGif
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -451,7 +451,7 @@ import { clientes } from '../../server';
     const imgGifSticker = request.body.imgGifSticker
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -475,7 +475,7 @@ import { clientes } from '../../server';
     const listChats = request.body.listChats
     
  
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -500,7 +500,7 @@ import { clientes } from '../../server';
   export async function getAllChatsCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -516,7 +516,7 @@ import { clientes } from '../../server';
   export async function getAllChatsNewMsgCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -532,7 +532,7 @@ import { clientes } from '../../server';
   export async function getAllChatsContactsCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -548,7 +548,7 @@ import { clientes } from '../../server';
   export async function getChatContactNewMsgCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -564,7 +564,7 @@ import { clientes } from '../../server';
   export async function getAllChatsGroupsCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -580,7 +580,7 @@ import { clientes } from '../../server';
   export async function getChatGroupNewMsgCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -596,7 +596,7 @@ import { clientes } from '../../server';
   export async function getAllChatsTransmissionCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -612,7 +612,7 @@ import { clientes } from '../../server';
   export async function getAllContactsCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -628,7 +628,7 @@ import { clientes } from '../../server';
   export async function getListMuteCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -644,7 +644,7 @@ import { clientes } from '../../server';
   export async function getSessionTokenBrowserCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -660,7 +660,7 @@ import { clientes } from '../../server';
   export async function getBlockListCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -678,7 +678,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -696,7 +696,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -714,7 +714,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -732,7 +732,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -750,7 +750,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -767,7 +767,7 @@ import { clientes } from '../../server';
 
     const session =  request.body.session
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -785,7 +785,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -803,7 +803,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -821,7 +821,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const tel = request.body.tel
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -847,7 +847,7 @@ import { clientes } from '../../server';
     const groupId = request.body.groupId
     const description = request.body.description
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -865,7 +865,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const groupId = request.body.groupId
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -883,7 +883,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const groupId = request.body.groupId
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -901,7 +901,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const groupId = request.body.groupId
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -919,7 +919,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const groupId = request.body.groupId
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -938,7 +938,7 @@ import { clientes } from '../../server';
     const groupName = request.body.groupName
     const listContacts = request.body.listContacts
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -957,7 +957,7 @@ import { clientes } from '../../server';
     const groupId = request.body.groupId
     const contact = request.body.contact
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -976,7 +976,7 @@ import { clientes } from '../../server';
     const groupId = request.body.groupId
     const contact = request.body.contact
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -995,7 +995,7 @@ import { clientes } from '../../server';
     const groupId = request.body.groupId
     const contact = request.body.contact
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1014,7 +1014,7 @@ import { clientes } from '../../server';
     const groupId = request.body.groupId
     const contact = request.body.contact
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1032,7 +1032,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const groupId = request.body.groupId
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1056,7 +1056,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const status = request.body.status
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1074,7 +1074,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const nameProfile = request.body.nameProfile
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1092,7 +1092,7 @@ import { clientes } from '../../server';
     const session =  request.body.session
     const imagProfile = request.body.imagProfile
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1109,7 +1109,7 @@ import { clientes } from '../../server';
 
     const session =  request.body.session
 
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1131,7 +1131,7 @@ import { clientes } from '../../server';
   export async function logoutCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1147,7 +1147,7 @@ import { clientes } from '../../server';
   export async function killServiceWorkerCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1163,7 +1163,7 @@ import { clientes } from '../../server';
   export async function restartServiceCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1179,7 +1179,7 @@ import { clientes } from '../../server';
   export async function getConnectionStateCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1195,7 +1195,7 @@ import { clientes } from '../../server';
   export async function getBatteryLevelCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1211,7 +1211,7 @@ import { clientes } from '../../server';
   export async function isConnectedCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  
@@ -1227,7 +1227,7 @@ import { clientes } from '../../server';
   export async function getWAVersionCustom(request, response) {
 
     const session =  request.body.session
-    const cliente = filterArrayBySession(clientes, session)
+    const cliente = filterArrayBySession(clientesWhats, session)
 
     try {
  

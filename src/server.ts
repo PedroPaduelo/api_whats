@@ -1,143 +1,126 @@
 import express, { json } from 'express';
-import httpServer from "http";
+import { Server } from 'socket.io';
+import httpServer from 'http';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
-import routes from './routes/routes';
-import { Server } from "socket.io";
-import cookieParser from 'cookie-parser';
 import { create } from 'venom-bot';
-import knex from 'knex';
-
-
-
-function filterArrayBySession(arr, session) {
-  return arr.filter(function(item) {
-    return item.session === session;
-  });
-}
-
-
+import { verify } from 'jsonwebtoken';
+import routes from './routes/routes';
 
 
 dotenv.config();
+
+
+export const clientesIo = {};
 
 const app = express();
 const server = httpServer.createServer(app);
 app.use(cors());
 app.use(json());
 app.use(routes);
-app.use(cookieParser());
 
-// Mudei a criação do servidor do Socket.io para utilizar o server criado acima
-export const io = new Server(server, {
+const io = new Server(server, {
   cors: {
-      origin: '*'
-  }
+    origin: '*',
+  },
 });
 
 
-
-export let listConnectionsDatabase = []
-export async function connectionDataBase( datname ){
-
-  const connectionDatabase = listConnectionsDatabase.find( (e)=> e.datname === datname )
-
-  if(!connectionDatabase){
-
-    try {
-
-      const connection = knex({
-        client: 'pg',
-        connection: {
-          host :    process.env.PGHOST,
-          port:     5800,
-          database: datname,
-          user:     process.env.PGUSER,
-          password: process.env.PGPASSWORD
-        },
-        pool: { 
-          min: 0,
-          max: 50 
-        },
-        useNullAsDefault: true
-      })
-  
-      listConnectionsDatabase.push({
-        datname: datname,
-        connection: connection
-      })
-
-      return connection
-  
-    } catch (error) {
-      // console.log(error);
-      return false
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token.replace(/"/g, "");
+  verify(token, process.env.KEY_HASH, function (err, decoded) {
+    if (err) {
+      console.log(err)
+      return "O token é inválido";
     }
+    
+    socket["email"] = decoded["email"];
+    return next();
+  });
+});
 
-  }
 
-  return connectionDatabase.connection
-}
-
-
-
-export let clientes = []
+export let clientesWhats = [];
 io.on("connection", (socket) => {
   console.log(socket.id);
+  const email = socket["email"];
 
+  // Adiciona o novo socket ao objeto
+  if (!clientesIo[email]) {
+    clientesIo[email] = {
+      sockets: [],
+      data: null
+    };
+  }
+  clientesIo[email].sockets.push(socket);
 
+  // Envia as informações armazenadas para o novo socket
+  const data = clientesIo[email].data;
+  if (data) {
+    socket.emit("reconnect", data);
+  }
+
+  socket.on("message", (message) => {
+    io.emit("message", message);
+  });
 
   socket.on('generate-qr-code', async (data) => {
-    const cliente = await create(
 
-      data.session,
-      
-      (base64Qr, asciiQR, attempts, urlCode) => {
-        socket.emit("qr-code-imagee", base64Qr);
-      },
 
-      undefined,
 
-      { logQR: false }
-
-    )
-
-    cliente.onAnyMessage( async onAnyMessage => {
-      console.log("onAnyMessage")
-    })
-
-    cliente.onMessage( async onMessage => {
-      console.log("onMessage")
-    })
-
-    cliente.onStateChange( async onStateChange => {
-      console.log("onStateChange")
-    })
-
-    cliente.onAck( async onAck => {
-      console.log("onAck")
-    })
-
-    clientes.push({
-      session: data.session,
-      cliente: cliente
-    }) 
     
-  })
+    const cliente = await create(
+      data,
+      (base64Qr, asciiQR, attempts, urlCode) => {
 
-  socket.on('ativar-conta', async (data) => {
-    const cliente = filterArrayBySession(clientes, data.session)
-    cliente[0].cliente.onMessage( async message => {
-      console.log(message)
-    })
-  })
+        const dataToStore = {
+          qrCodeImage: base64Qr,
+          attempts: attempts
+        };
 
-  
-})
+        // Armazena as informações da conexão
+        clientesIo[email].data = dataToStore;
+
+        // Envia as informações para todos os sockets
+        clientesIo[email].sockets.forEach((s) => {
+          s.emit("qr-code-image", {
+            qrCodeImage: base64Qr,
+            attempts: attempts
+          });
+        });
+      },
+      undefined,
+      { logQR: false }
+    );
+
+    
+    clientesWhats.push({
+      session: data,
+      cliente: cliente
+    });
 
 
 
+    cliente.onAnyMessage(async onAnyMessage => {
+      console.log(onAnyMessage);
+    });
 
-const port = process.env.PORT;
-// Mudei a função listen para o server criado acima
-server.listen(port, ()=> console.log("Conectado! PORT: " + port));
+    cliente.onMessage(async onMessage => {
+      console.log(onMessage);
+    });
+
+    cliente.onAck(async onAck => {
+      // Resto do código...
+    });
+
+    cliente.onStateChange(async state => {
+      // Resto do código...
+    });
+    
+  });
+
+
+});
+
+const port = process.env.PORT || 3011;
+server.listen(port, () => console.log(`Server listening on port ${port}`));
